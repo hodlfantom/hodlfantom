@@ -75,7 +75,7 @@ export const getLottoStats = async function (setAppState, contract, hodlContract
         window.alert("Oops!! looks like nobody has bought any tickets yet")
     } else {
 
-        const toClaim = await hodlContract.tokensToCxlaim(lottoContract);
+        const toClaim = await hodlContract.tokensToClaim(lottoContract);
         let userTotalBalance = BigNumber.from(toClaim).toNumber() / 1e6
         const supply = await hodlContract.totalSupply();
         let totalSupply = BigNumber.from(supply).toNumber() / 1e6
