@@ -78,7 +78,7 @@ export const approveHodl = async function (setHodlState, contract) {
         let transaction = await contract.approve(lottoContract, 10000000)
         let tx = await transaction.wait()
         console.log(transaction)
-        checkApprove(setHodlState, contract)
+
     }
 }
 
