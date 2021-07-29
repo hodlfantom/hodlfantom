@@ -5,9 +5,13 @@ import { lottoContract, lottoAbi } from '../contracts/lotto'
 export const depositHodl = async function (amount, setAppState, contract) {
     if (typeof window.ethereum !== 'undefined') {
         const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' })
-        let transaction = await contract.deposit(amount)
-        let tx = await transaction.wait()
-        console.log(transaction)
+        try {
+            let transaction = await contract.deposit(amount)
+            let tx = await transaction.wait()
+        } catch (error) {
+            // console.log(error)
+            window.alert("You either don't have enough hodl or you're trying to spend more than you approved");
+        }
     }
 }
 
@@ -18,7 +22,7 @@ export const withdrawHodl = async function (setAppState, contract) {
             let tx = await transaction.wait()
             console.log(transaction, tx)
         } catch (error) {
-            console.log(error)
+            window.alert("You can't withdraw yet! Please try again later");
         }
     }
 }

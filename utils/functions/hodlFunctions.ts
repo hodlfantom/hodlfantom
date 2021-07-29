@@ -54,7 +54,6 @@ export const getBalance = async function (setAppState, contract) {
                     isLoading: false
                 }))
         } catch (error) {
-            console.log(error)
             window.alert('Go buy some hodl before you participate in the lotto');
             window.open("https://exchange.paintswap.finance/#/swap?outputCurrency=0xb2da66c4a89d0f93935d1efdb9c9c8d1d3ba9343");
             const sup = await contract.totalSupply();
@@ -77,11 +76,10 @@ export const getBalance = async function (setAppState, contract) {
 export const approveHodl = async function (setAppState, contract) {
     if (typeof window.ethereum !== 'undefined') {
         const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' })
-        let transaction = await contract.approve(lottoContract, 1000000)
+        let transaction = await contract.approve(lottoContract, 10000000)
         let tx = await transaction.wait()
         console.log(transaction)
         checkApprove(setAppState, contract)
-
     }
 }
 
