@@ -26,18 +26,18 @@ function Nav() {
                 <Link href="/stats">
                     <span css={[tw`text-white hover:color[#45d95c] cursor-pointer`, router.asPath === "/stats" && tw`color[#0B193D]`]}> HodlStats</span>
                 </Link>
-                <Link href="https://ftmscan.com/token/0xb2da66c4a89d0f93935d1efdb9c9c8d1d3ba9343">
+                <a href="https://ftmscan.com/token/0xb2da66c4a89d0f93935d1efdb9c9c8d1d3ba9343" target="_blank" >
                     <span tw="text-white hover:color[#45d95c] cursor-pointer"> View Contract</span>
-                </Link>
-                <Link href="https://hodlfantom.gitbook.io/hodl-on-fantom/">
+                </a>
+                <a href="https://hodlfantom.gitbook.io/hodl-on-fantom/" target="_blank" >
                     <span tw="text-white hover:color[#45d95c] cursor-pointer"> Gitbook</span>
-                </Link>
+                </a>
             </div>
 
             <div tw="hidden md:flex space-x-4 ">
                 {navdata.map((item, index) =>
                     <div key={index} tw="color[#0B193D] w-12 h-12 rounded-full  flex items-center justify-center p-1 cursor-pointer hover:text-white" className="glass">
-                        <a href={item.link}>
+                        <a href={item.link} target="_blank">
                             {icons[index]}
                         </a>
                     </div>)}
