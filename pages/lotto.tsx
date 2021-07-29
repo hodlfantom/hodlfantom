@@ -91,13 +91,18 @@ export default function Home() {
 
 
 
-    function handleWithdraw() {
+    async function handleWithdraw() {
         withdrawHodl(setHodlState, hodlState.contracts.lottoSigner)
     }
-    function handleApprove() {
-        approveHodl(setHodlState, hodlState.contracts.hodlSigner)
+    async function handleApprove() {
+        await approveHodl(setHodlState, hodlState.contracts.hodlSigner)
+        setHodlState((current) => (
+            {
+                ...current,
+                isApproved: true
+            }))
     }
-    function handleBuyTickets() {
+    async function handleBuyTickets() {
         depositHodl(1000 * buyAmount, setHodlState, hodlState.contracts.lottoSigner)
     }
 

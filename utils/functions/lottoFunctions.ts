@@ -70,20 +70,25 @@ export const getLottoStats = async function (setAppState, contract, hodlContract
     //fetch the hodl balance, daily rebase of the lotto contract and claculate the rewards
     const balanceOf = await hodlContract.balanceOf(lottoContract);
     let userBalance = BigNumber.from(balanceOf).toNumber() / 1e6
+    let reward = 0
     if (userBalance == 0) {
         window.alert("Oops!! looks like nobody has bought any tickets yet")
+    } else {
+
+        const toClaim = await hodlContract.tokensToCxlaim(lottoContract);
+        let userTotalBalance = BigNumber.from(toClaim).toNumber() / 1e6
+        const supply = await hodlContract.totalSupply();
+        let totalSupply = BigNumber.from(supply).toNumber() / 1e6
+
+        let dailyRebase = (userTotalBalance / totalSupply) * 24
+
+        // Winning amount is 75% of the daily rebase of the contract
+        const reward = (dailyRebase * hodlPrice * 0.75).toFixed(2)
     }
-    const toClaim = await hodlContract.tokensToClaim(lottoContract);
-    let userTotalBalance = BigNumber.from(toClaim).toNumber() / 1e6
 
 
-    const supply = await hodlContract.totalSupply();
-    let totalSupply = BigNumber.from(supply).toNumber() / 1e6
 
-    let dailyRebase = (userTotalBalance / totalSupply) * 24
 
-    // Winning amount is 75% of the daily rebase of the contract
-    const reward = (dailyRebase * hodlPrice * 0.75).toFixed(2)
 
     setAppState((current) => (
         {
