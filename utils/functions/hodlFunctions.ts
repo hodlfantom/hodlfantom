@@ -10,7 +10,6 @@ export const claimRebase = async function (setAppState, contract) {
         console.log(transaction)
         const balance = await contract.allInfoFor(account);
         getBalance(setAppState, contract)
-
     }
 }
 
