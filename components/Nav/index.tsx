@@ -34,14 +34,14 @@ function Nav() {
                 </a>
             </div>
 
-            {/* <div tw="hidden md:flex space-x-4 ">
+            <div tw="hidden md:flex space-x-4 ">
                 {navdata.map((item, index) =>
                     <div key={index} tw="color[#0B193D] w-10 h-10 rounded-full bg-white border-2 bg-opacity-20 flex items-center justify-center p-1 cursor-pointer hover:text-white" >
                         <a href={item.link} target="_blank">
                             {icons[index]}
                         </a>
                     </div>)}
-            </div> */}
+            </div>
 
         </div>
     )
