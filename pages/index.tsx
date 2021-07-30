@@ -34,12 +34,12 @@ export default function Home() {
 
                 <div tw="flex flex-col items-center w-full md:flex-row space-y-4 md:(space-x-4 space-y-0 items-start)">
                   <div tw="text-2xl font-bold color[#0B193D] select-none background-color[#45D95C] hover:(background-color[#0B193D]  color[#45D95C]) rounded-lg px-4 py-2 text-center cursor-pointer min-width[150px]">
-                    <a href="https://exchange.paintswap.finance/#/swap?outputCurrency=0xb2da66c4a89d0f93935d1efdb9c9c8d1d3ba9343">
+                    <a href="https://exchange.paintswap.finance/#/swap?outputCurrency=0xb2da66c4a89d0f93935d1efdb9c9c8d1d3ba9343" target="_blank">
                       Buy HODL
                     </a>
                   </div>
                   <div tw="text-2xl font-bold background-color[#0B193D] select-none color[#45D95C] hover:(color[#0B193D]  background-color[#45D95C]) rounded-lg px-4 py-2 text-center cursor-pointer min-width[150px]">
-                    <a href="https://charts.zoocoin.cash/?exchange=PaintSwap&pair=HODL-WFTM">
+                    <a href="https://charts.zoocoin.cash/?exchange=PaintSwap&pair=HODL-WFTM" target="_blank">
                       View Charts
                     </a>
                   </div>
