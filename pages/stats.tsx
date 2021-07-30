@@ -29,6 +29,7 @@ function Stats() {
                 }))
             return;
         }
+        window.ethereum.enable()
         loadWallet()
 
         window.ethereum.on('accountsChanged', () => {
