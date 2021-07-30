@@ -158,7 +158,7 @@ export default function Home() {
                                             <div tw="grid grid-cols-1 lg:grid-cols-3  gap-8 mb-4">
                                                 <LottoCard val={(hodlState.lottoStats.slots).toFixed()} tittle="Slots" desc="Sample Description" />
                                                 <LottoCard val={hodlState.lottoStats.tickets} tittle="Tickets" desc="Sample Description" />
-                                                <LottoCard val={"$" + hodlState.lottoStats.price} tittle="Reward" desc="Sample Description" />
+                                                <LottoCard val={"$" + hodlState.lottoStats.price * 2} tittle="Reward" desc="Sample Description" />
                                                 <LottoCard val={hodlState.lottoStats.remainingTime} tittle="Left" desc="Sample Description" />
                                                 <LottoCard val={hodlState.lottoStats.totalTickets} tittle="Total Tickets" desc="Sample Description" />
                                                 <LottoCard val={((hodlState.lottoStats.tickets / hodlState.lottoStats.totalTickets) * 100).toString().substr(0, 5) + "%"} tittle="Wining Chance" desc="Sample Description" />

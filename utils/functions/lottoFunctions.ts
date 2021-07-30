@@ -48,6 +48,7 @@ const calculateRemainingTime = async function (contract) {
     let hour = drawTime.getHours() - presentTime.getHours()
     let minutes = drawTime.getMinutes() - presentTime.getMinutes()
 
+
     if (minutes < 0) {
         minutes = minutes + 60
         hour -= 1
