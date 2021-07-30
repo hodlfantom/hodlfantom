@@ -8,7 +8,6 @@ export const claimRebase = async function (setHodlState, contract) {
         let transaction = await contract.transfer(account, 0)
         let tx = await transaction.wait()
         console.log(transaction)
-        const balance = await contract.allInfoFor(account);
         getBalance(setHodlState, contract)
     }
 }

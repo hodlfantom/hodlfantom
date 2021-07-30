@@ -103,7 +103,8 @@ export default function Home() {
             }))
     }
     async function handleBuyTickets() {
-        depositHodl(1000 * buyAmount, setHodlState, hodlState.contracts.lottoSigner)
+        await depositHodl(1000 * buyAmount, setHodlState, hodlState.contracts.lottoSigner)
+        await getLottoStats(setHodlState, hodlState.contracts.lotto, hodlState.contracts.hodl, hodlState.hodlPrice.usd)
     }
 
     function increment() {
@@ -149,13 +150,13 @@ export default function Home() {
 
 
                                         <div tw="flex flex-col items-center px-4 py-8 flex-1 ">
-                                            <h2 tw="text-2xl lg:text-6xl font-bold text-white tracking-wider mb-4">
+                                            <h2 tw="text-2xl lg:text-6xl font-bold text-white tracking-wider mb-12">
                                                 HODL
                                                 <span tw="color[#45D95C]">Lotto</span>
                                             </h2>
 
                                             <div tw="grid grid-cols-1 lg:grid-cols-3  gap-8 mb-4">
-                                                <LottoCard val={hodlState.lottoStats.slots} tittle="Slots" desc="Sample Description" />
+                                                <LottoCard val={(hodlState.lottoStats.slots).toFixed()} tittle="Slots" desc="Sample Description" />
                                                 <LottoCard val={hodlState.lottoStats.tickets} tittle="Tickets" desc="Sample Description" />
                                                 <LottoCard val={"$" + hodlState.lottoStats.price} tittle="Reward" desc="Sample Description" />
                                                 <LottoCard val={hodlState.lottoStats.remainingTime} tittle="Left" desc="Sample Description" />

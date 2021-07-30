@@ -86,7 +86,6 @@ function Stats() {
         claimRebase(setHodlState, hodlState.contracts.hodlSigner)
     }
 
-    let x = "081"
 
     return (
         <div tw="min-h-screen md:h-screen w-full relative bg-cover background-image[url('/assets/images/bg_mountain.jpg')] font-bold">

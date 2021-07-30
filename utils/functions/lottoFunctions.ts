@@ -50,9 +50,10 @@ const calculateRemainingTime = async function (contract) {
 
     if (minutes < 0) {
         minutes = minutes + 60
-        hour -= hour
+        hour -= 1
     }
     if (hour < 0) { hour = hour + 24 }
+    if (hour > 23) { hour = hour - 24 }
 
     return hour + "h" + minutes + "m"
 
@@ -70,7 +71,7 @@ export const getLottoStats = async function (setAppState, contract, hodlContract
     //fetch the hodl balance, daily rebase of the lotto contract and claculate the rewards
     const balanceOf = await hodlContract.balanceOf(lottoContract);
     let userBalance = BigNumber.from(balanceOf).toNumber() / 1e6
-    let reward = 0
+    let reward = "0"
     if (userBalance == 0) {
         window.alert("Oops!! looks like nobody has bought any tickets yet")
     } else {
@@ -83,7 +84,7 @@ export const getLottoStats = async function (setAppState, contract, hodlContract
         let dailyRebase = (userTotalBalance / totalSupply) * 24
 
         // Winning amount is 75% of the daily rebase of the contract
-        const reward = (dailyRebase * hodlPrice * 0.75).toFixed(2)
+        reward = (dailyRebase * hodlPrice * 0.75).toFixed(2)
     }
 
 

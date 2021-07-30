@@ -19,7 +19,7 @@ function Nav() {
                 </div>
             </Link>
 
-            <div tw="lg:flex items-center justify-around text-2xl flex-1 font-bold hidden px-32">
+            <div tw="xl:flex items-center justify-center space-x-4 text-xl xl:text-2xl flex-1 font-bold hidden ">
                 <Link href="/lotto">
                     <span css={[tw`text-white hover:color[#45d95c] cursor-pointer`, router.asPath === "/lotto" && tw`color[#0B193D]`]} > HodlLotto</span>
                 </Link>
@@ -34,14 +34,14 @@ function Nav() {
                 </a>
             </div>
 
-            <div tw="hidden md:flex space-x-4 ">
+            {/* <div tw="hidden md:flex space-x-4 ">
                 {navdata.map((item, index) =>
-                    <div key={index} tw="color[#0B193D] w-12 h-12 rounded-full  flex items-center justify-center p-1 cursor-pointer hover:text-white" className="glass">
+                    <div key={index} tw="color[#0B193D] w-10 h-10 rounded-full bg-white border-2 bg-opacity-20 flex items-center justify-center p-1 cursor-pointer hover:text-white" >
                         <a href={item.link} target="_blank">
                             {icons[index]}
                         </a>
                     </div>)}
-            </div>
+            </div> */}
 
         </div>
     )
