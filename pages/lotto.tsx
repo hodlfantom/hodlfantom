@@ -35,6 +35,7 @@ export default function Home() {
                 }))
             return;
         }
+        window.ethereum.enable()
         loadWallet()
 
         window.ethereum.on('accountsChanged', () => {
@@ -129,7 +130,7 @@ export default function Home() {
         <div tw="min-h-screen lg:h-screen w-full relative bg-cover background-image[url('/assets/images/bg_mountain.jpg')] font-bold">
             <Head>
                 <title>HODLOnFantom | HODLStats</title>
-                <meta name="description" content="HodlStats- All your Hodl stats at one place" />
+                <meta name="description" content="HodlLotto- A lossless raffle " />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
