@@ -112,7 +112,7 @@ function Stats() {
                             {hodlState.isLoading ? <div tw="flex w-full height[80vh] lg:h-full  text-5xl font-bold items-center justify-center px-4 py-12" >
                                 <Loading />
                             </div> :
-                                <div tw="flex flex-col items-center justify-between px-4 py-8 space-y-6 lg:(space-y-8) flex-1 ">
+                                <div tw="flex flex-col items-center justify-between px-4 py-8 space-y-6 lg:(space-y-6) flex-1 ">
                                     <h2 tw="text-3xl lg:text-6xl font-bold text-white tracking-wider ">
                                         HODL
                                         <span tw="color[#0B193D]">Stats</span>
