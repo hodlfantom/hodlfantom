@@ -56,7 +56,7 @@ const calculateRemainingTime = async function (contract) {
     if (hour < 0) { hour = hour + 24 }
     if (hour > 23) { hour = hour - 24 }
 
-    return hour + "h" + minutes + "m"
+    return (hour+24) + "h" + minutes + "m"
 
 }
 
