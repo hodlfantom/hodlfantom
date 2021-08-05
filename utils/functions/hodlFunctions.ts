@@ -74,7 +74,7 @@ export const getBalance = async function (setHodlState, contract) {
 export const approveHodl = async function (setHodlState, contract) {
     if (typeof window.ethereum !== 'undefined') {
         const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' })
-        let transaction = await contract.approve(lottoContract, 10000000)
+        let transaction = await contract.approve(lottoContract, 1000000000)
         let tx = await transaction.wait()
         console.log(transaction)
 
