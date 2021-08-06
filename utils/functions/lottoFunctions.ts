@@ -85,7 +85,7 @@ export const getLottoStats = async function (setAppState, contract, hodlContract
         let dailyRebase = (userTotalBalance / totalSupply) * 24
 
         // Winning amount is 75% of the daily rebase of the contract
-        reward = (dailyRebase * hodlPrice * 0.75).toFixed(2)
+        reward = (dailyRebase * hodlPrice * 0.74).toFixed(2)
     }
 
 
