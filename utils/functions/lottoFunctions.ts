@@ -22,7 +22,7 @@ export const withdrawHodl = async function (setAppState, contract) {
             let tx = await transaction.wait()
             console.log(transaction, tx)
         } catch (error) {
-            window.alert("You can't withdraw yet! Please try again later");
+            window.alert("You can't withdraw yet, minimum time before withdrawal is 48hrs from last deposit! Please try again later");
         }
     }
 }
