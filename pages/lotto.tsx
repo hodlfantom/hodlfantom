@@ -159,7 +159,7 @@ export default function Home() {
                                             <div tw="grid grid-cols-1 lg:grid-cols-3  gap-8 mb-4">
                                             <LottoCard val={(hodlState.lottoStats.slots).toFixed()} tittle="Slots" desc="1 Slot = 1 Ticket/4hr. You lose Slots when you withdraw HODL." />
                                                 <LottoCard val={hodlState.lottoStats.tickets} tittle="Tickets" desc="Tickets never expire. New tickets only given by having Slots" />
-                                                <LottoCard val={"$" + hodlState.lottoStats.price * 2} tittle="Reward" desc="Calculated rewards based on HODL price and total HODL currently in Lotto" />
+                                                <LottoCard val={"$" + hodlState.lottoStats.price} tittle="Reward" desc="Calculated rewards based on HODL price and total HODL currently in Lotto" />
                                                 <LottoCard val={hodlState.lottoStats.remainingTime} tittle="Left" desc="Time until next Drawing where winner is picked" />
                                                 <LottoCard val={hodlState.lottoStats.totalTickets} tittle="Total Tickets" desc="Total tickets held by everyone currently playing lotto" />
                                                 <LottoCard val={((hodlState.lottoStats.tickets / hodlState.lottoStats.totalTickets) * 100).toFixed(2) + "%"} tittle="Wining Chance" desc="Chance of winning based on your tickets vs total tickets" />
