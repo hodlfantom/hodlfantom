@@ -17,10 +17,10 @@ export default function Home() {
         <meta name="description" content="HodlOnFantom- The first rebase token on fantom" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="" tw=" flex flex-col h-full w-full items-center justify-center text-6xl ">
+      <div className="" tw=" flex flex-col w-full items-center justify-center text-6xl ">
         <div tw=" h-full w-full z-10 md:p-8 p-4 relative">
 
-          <div className="glass" tw=" bg-white bg-opacity-40  w-full h-full flex flex-col z-index[1] relative">
+          <div className="glass" tw=" bg-white bg-opacity-40  w-full min-height[90vh] flex flex-col z-index[1] relative">
             <Nav />
             {/* Main */}
             <div tw="z-index[-2] h-full absolute inset-0 filter blur-md bg-cover background-image[url('/assets/images/bg_mountain.jpg')] bg-opacity-20"></div>
