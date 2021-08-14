@@ -60,6 +60,26 @@ const calculateRemainingTime = async function (contract) {
 
 }
 
+export const getWinners = async function (setHodlState, contract) {
+    const winnerlist = []
+    if (typeof window.ethereum !== 'undefined') {
+        let winners = await contract.getWinner()
+
+        winners.map((winner) => {
+            if (winner.addr != "0x0000000000000000000000000000000000000000") {
+                const wnr = { addr: winner.addr, amount: (BigNumber.from(winner.amount).toNumber() / 1e6) }
+
+                setHodlState((current) => (
+                    {
+                        ...current,
+                        winnersList: [...current.winnersList, wnr]
+                    }))
+                winnerlist.push(wnr)
+            }
+        })
+    }
+}
+
 export const getLottoStats = async function (setAppState, contract, hodlContract, hodlPrice) {
 
     // Get the lotto related stats by calling the lotto contract read functions
