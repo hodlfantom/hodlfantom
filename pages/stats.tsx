@@ -94,7 +94,7 @@ function Stats() {
 
 
     return (
-        <div tw="min-h-screen md:h-screen w-full relative bg-cover background-image[url('/assets/images/bg_mountain.jpg')] font-bold">
+        <div tw="min-h-screen w-full relative bg-cover background-image[url('/assets/images/bg_mountain.jpg')] font-bold">
             <Head>
                 <title>HODLOnFantom | HODLStats</title>
                 <meta name="description" content="HodlStats- All your Hodl stats at one place" />
