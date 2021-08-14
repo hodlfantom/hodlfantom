@@ -16,6 +16,7 @@ export const HodlProvider = props => {
         signer: null,
         isApproved: false,
         contracts: null,
+        winnersList: [],
         hodlStats: {
             userBalance: 0,
             userTotalBalance: 0,
