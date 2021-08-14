@@ -80,22 +80,7 @@ export default function Home() {
             // console.log("caled winners")
             await getWinners(setHodlState, lotto)
         }
-        // console.log("list")
-        // console.log(hodlState.winnersList)
-
-
-        // hodlState.winnersList[0].forEach(function (arrayItem, index) {
-        //     winners.push(
-        //         <div key={index}>
-        //             {/* <span>{arrayItem.addr}</span> */}
-        //             <span>{arrayItem.amount}</span>
-        //         </div>
-        //     )
-        //     console.log(arrayItem);
-        //     console.log(index);
-        // });
-        // hodlState.winnersList.map((winne) => console.log(winne.addr))
-        // await getWinners(setHodlState, lotto)
+ 
         setHodlState((current) => (
             {
                 ...current,
