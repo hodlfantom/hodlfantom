@@ -77,9 +77,25 @@ export default function Home() {
         await getBalance(setHodlState, hodl)
         await getLottoStats(setHodlState, lotto, hodl, price)
         if (hodlState.winnersList.length == 0) {
+            // console.log("caled winners")
             await getWinners(setHodlState, lotto)
         }
+        // console.log("list")
+        // console.log(hodlState.winnersList)
 
+
+        // hodlState.winnersList[0].forEach(function (arrayItem, index) {
+        //     winners.push(
+        //         <div key={index}>
+        //             {/* <span>{arrayItem.addr}</span> */}
+        //             <span>{arrayItem.amount}</span>
+        //         </div>
+        //     )
+        //     console.log(arrayItem);
+        //     console.log(index);
+        // });
+        // hodlState.winnersList.map((winne) => console.log(winne.addr))
+        // await getWinners(setHodlState, lotto)
         setHodlState((current) => (
             {
                 ...current,
@@ -132,14 +148,14 @@ export default function Home() {
 
 
     return (
-        <div tw="min-h-screen w-full relative bg-cover background-image[url('/assets/images/bg_mountain.jpg')] font-bold">
+        <div tw="min-h-screen h-full w-full relative bg-cover background-image[url('/assets/images/bg_mountain.jpg')] font-bold">
             <Head>
                 <title>HODLOnFantom | HODLStats</title>
                 <meta name="description" content="HodlLotto- A lossless raffle " />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <div className="" tw=" flex flex-col h-full w-full items-center justify-center ">
+            <div className="" tw=" flex flex-col w-full items-center justify-center min-h-screen ">
                 <div tw=" h-full w-full z-10 md:p-8 p-4 relative">
 
                     <div className="glass" tw=" bg-white bg-opacity-40  w-full h-full flex flex-col z-index[1] relative">
@@ -148,7 +164,7 @@ export default function Home() {
 
                         <div tw="flex items-center justify-center h-full pt-24">
                             {
-                                hodlState.isLoading ? <div tw="flex w-full height[80vh] lg:h-full  text-5xl font-bold items-center justify-center px-4 py-12">
+                                hodlState.isLoading ? <div tw="flex w-full height[80vh] lg:height[80vh]  text-5xl font-bold items-center justify-center px-4 py-12">
                                     <Loading />
                                 </div> :
                                     <div tw="flex flex-col lg:(flex-row space-y-0)  w-full h-full ">
