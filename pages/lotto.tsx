@@ -7,7 +7,7 @@ import Web3Modal from "web3modal"
 import { HodlContext } from '../context/HodlContext'
 
 import { checkApprove, approveHodl, getBalance, claimRebase } from '../utils/functions/hodlFunctions'
-import { depositHodl, withdrawHodl, getDepositedAmount, getDepositTime, getTickets, getLottoStats } from '../utils/functions/lottoFunctions'
+import { depositHodl, withdrawHodl, getDepositedAmount, getDepositTime, getTickets, getLottoStats, getWinners } from '../utils/functions/lottoFunctions'
 
 import { hodlAbi, hodlContract } from '../utils/contracts/hodl'
 import { fetchPrice } from '../utils/functions/fetchPrice'
@@ -17,13 +17,14 @@ import LottoCard from '../components/lottoCard'
 import StatsCard from '../components/statsCard'
 import Nav from '../components/Nav'
 import Loading from '../components/Loading'
+import WinnerCard from '../components/WinnerCard'
 
 
 export default function Home() {
     const [hodlState, setHodlState] = useContext(HodlContext)
     const [buyAmount, setBuyAmount] = useState(0)
 
-
+    const winners = []
     useEffect(() => {
         if (!window.ethereum) {
             window.alert('Install Metamask to continue.');
@@ -75,6 +76,10 @@ export default function Home() {
         await checkApprove(setHodlState, hodl)
         await getBalance(setHodlState, hodl)
         await getLottoStats(setHodlState, lotto, hodl, price)
+        if (hodlState.winnersList.length == 0) {
+            await getWinners(setHodlState, lotto)
+        }
+
         setHodlState((current) => (
             {
                 ...current,
@@ -127,7 +132,7 @@ export default function Home() {
 
 
     return (
-        <div tw="min-h-screen lg:h-screen w-full relative bg-cover background-image[url('/assets/images/bg_mountain.jpg')] font-bold">
+        <div tw="min-h-screen w-full relative bg-cover background-image[url('/assets/images/bg_mountain.jpg')] font-bold">
             <Head>
                 <title>HODLOnFantom | HODLStats</title>
                 <meta name="description" content="HodlLotto- A lossless raffle " />
@@ -150,14 +155,16 @@ export default function Home() {
                                         {/* hodlLotto */}
 
 
-                                        <div tw="flex flex-col items-center px-4 py-8 flex-1 ">
+
+
+                                        <div tw="flex flex-col items-center px-6 py-8 flex-1 ">
                                             <h2 tw="text-2xl lg:text-6xl font-bold text-white tracking-wider mb-12">
                                                 HODL
                                                 <span tw="color[#45D95C]">Lotto</span>
                                             </h2>
 
                                             <div tw="grid grid-cols-1 lg:grid-cols-3  gap-8 mb-4">
-                                            <LottoCard val={(hodlState.lottoStats.slots).toFixed()} tittle="Slots" desc="1 Slot = 1 Ticket/4hr. You lose Slots when you withdraw HODL." />
+                                                <LottoCard val={(hodlState.lottoStats.slots).toFixed()} tittle="Slots" desc="1 Slot = 1 Ticket/4hr. You lose Slots when you withdraw HODL." />
                                                 <LottoCard val={hodlState.lottoStats.tickets} tittle="Tickets" desc="Tickets never expire. New tickets only given by having Slots" />
                                                 <LottoCard val={"$" + hodlState.lottoStats.price} tittle="Reward" desc="Calculated rewards based on HODL price and total HODL currently in Lotto" />
                                                 <LottoCard val={hodlState.lottoStats.remainingTime} tittle="Left" desc="Time until next Drawing where winner is picked" />
@@ -206,6 +213,20 @@ export default function Home() {
                                             </div>
                                         </div>
 
+                                        <div tw=" p-8 lg:w-1/3">
+                                            <div className="glass" tw="w-full h-full flex flex-col items-center px-4 py-12">
+                                                <h2 tw="text-4xl color[#0B193D] text-center">Recent Winners </h2>
+                                                <div tw="flex flex-col w-full  items-center justify-evenly h-full">
+                                                    {hodlState.winnersList.length > 0 && hodlState.winnersList.map((winner, index) =>
+
+                                                        <WinnerCard key={index} address={winner.addr} amount={winner.amount} price={hodlState.hodlPrice.usd} />
+
+                                                    )}
+
+                                                    {/* {hodlState.winnersList.length > 0 && hodlState.winnersList[0].addr} */}
+                                                </div>
+                                            </div>
+                                        </div>
 
                                     </div>}
                         </div>
