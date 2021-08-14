@@ -217,15 +217,14 @@ export default function Home() {
                                         <div tw=" p-8 lg:w-1/3">
                                             <div className="glass" tw="w-full h-full flex flex-col items-center px-4 py-12">
                                                 <h2 tw="text-4xl color[#0B193D] text-center">Recent Winners </h2>
-                                                <div tw="flex flex-col w-full  items-center justify-evenly h-full">
+                                                <div tw="flex flex-col-reverse w-full  items-center justify-evenly h-full">
                                                     {hodlState.winnersList.length > 0 && hodlState.winnersList.map((winner, index) =>
 
                                                         <WinnerCard key={index} address={winner.addr} amount={winner.amount} price={hodlState.hodlPrice.usd} />
 
                                                     )}
-
-                                                    {/* {hodlState.winnersList.length > 0 && hodlState.winnersList[0].addr} */}
                                                 </div>
+                                                <span tw="w-full text-gray-300">* Displaying Latest winners first</span>
                                             </div>
                                         </div>
 
