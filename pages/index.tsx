@@ -11,7 +11,7 @@ export default function Home() {
 
 
   return (
-    <div tw="min-h-screen md:h-screen w-full relative bg-cover background-image[url('/assets/images/bg_mountain.jpg')]">
+    <div tw="min-h-screen w-full relative bg-cover background-image[url('/assets/images/bg_mountain.jpg')]">
       <Head>
         <title>HODLOnFantom</title>
         <meta name="description" content="HodlOnFantom- The first rebase token on fantom" />
